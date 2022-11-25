@@ -3,6 +3,7 @@ from cbvApp.models import Student
 from cbvApp.serializers import StudentSerializer
 from rest_framework.response import Response
 from rest_framework import status
+# Nos permitirá heredar API view nuestra CBV, es como el decorador @api_view pero para una clase  
 from rest_framework.views import APIView
 from django.http import Http404
 
@@ -10,11 +11,12 @@ from rest_framework import generics,mixins
 from rest_framework import viewsets
 from rest_framework.pagination import LimitOffsetPagination
 
+"""
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
     pagination_class = LimitOffsetPagination
-
+"""
 
 """
 class StudentList(generics.ListCreateAPIView):
@@ -51,6 +53,7 @@ class StudentDetail(mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.Des
 
 
 # Create your views here.
+"""
 class StudentList(APIView):
 
     def get(self,request):
@@ -77,8 +80,8 @@ class StudentDetail(APIView):
         serializer = StudentSerializer(student)
         return Response(serializer.data)
 
-    def put(sefl,request,pk):
-        student=self.get_object(pk)
+    def put(self,request,pk):
+        student = self.get_object(pk)
         serializer=StudentSerializer(student,data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -89,5 +92,3 @@ class StudentDetail(APIView):
         student = self.get_object(pk)
         student.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-"""
