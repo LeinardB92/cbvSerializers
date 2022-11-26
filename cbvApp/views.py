@@ -8,8 +8,8 @@ from rest_framework.views import APIView
 from django.http import Http404
 
 from rest_framework import generics,mixins
-from rest_framework import viewsets
-from rest_framework.pagination import LimitOffsetPagination
+#from rest_framework import viewsets
+#from rest_framework.pagination import LimitOffsetPagination
 
 """
 class StudentViewSet(viewsets.ModelViewSet):
@@ -27,9 +27,12 @@ class StudentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class= StudentSerializer
 
+"""
 
 class StudentList(mixins.ListModelMixin,mixins.CreateModelMixin,generics.GenericAPIView):
+    # Esto le dice a las clases Mixin que modelo será usado y con que datos trabajarán.
     queryset = Student.objects.all()
+    # Teniendo los datos debemos indicar el serializador que será utilizado.
     serializer_class= StudentSerializer
 
     def get(self,request):
@@ -92,3 +95,4 @@ class StudentDetail(APIView):
         student = self.get_object(pk)
         student.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+"""
