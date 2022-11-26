@@ -18,7 +18,7 @@ class StudentViewSet(viewsets.ModelViewSet):
     pagination_class = LimitOffsetPagination
 """
 
-"""
+
 class StudentList(generics.ListCreateAPIView):
     queryset = Student.objects.all()
     serializer_class= StudentSerializer
@@ -27,7 +27,9 @@ class StudentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class= StudentSerializer
 
+
 """
+# -------------------------------------------------------------
 
 class StudentList(mixins.ListModelMixin,mixins.CreateModelMixin,generics.GenericAPIView):
     # Esto le dice a las clases Mixin que modelo será usado y con que datos trabajarán.
@@ -54,9 +56,9 @@ class StudentDetail(mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.Des
     def delete(self,request,pk):
         return self.destroy(request,pk)
 
-
+#--------------------------------------------------------------------------------
 # Create your views here.
-"""
+
 class StudentList(APIView):
 
     def get(self,request):
