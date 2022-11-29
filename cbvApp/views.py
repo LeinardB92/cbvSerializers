@@ -9,20 +9,18 @@ from cbvApp.serializers import StudentSerializer
 
 #from rest_framework import generics,mixins
 from rest_framework import viewsets
-from rest_framework.pagination import PageNumberPagination
-#from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
 
-class StudentPagination(PageNumberPagination):
-    page_size = 3
-
+#class StudentPagination(PageNumberPagination):
+#    page_size = 4
 # Activa únicamente Get's
 # class StudentViewSet(viewsets.ReadOnlyModelViewSet):
 # Activa todos los métodos HTML
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-    pagination_class = StudentPagination
-    #pagination_class = LimitOffsetPagination
+    #pagination_class = StudentPagination
+    pagination_class = LimitOffsetPagination
 
 """
 # -------------------------------------------------------------
