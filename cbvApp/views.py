@@ -26,7 +26,7 @@ class StudentViewSet(viewsets.ModelViewSet):
     #pagination_class = StudentPagination
     pagination_class = LimitOffsetPagination
     filter_backends = [filters.SearchFilter]
-    search_fields = ['name', 'score']
+    search_fields = ['$name', '$score']
 
 """
 # -------------------------------------------------------------
