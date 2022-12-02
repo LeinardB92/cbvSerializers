@@ -25,8 +25,8 @@ class StudentViewSet(viewsets.ModelViewSet):
     serializer_class = StudentSerializer
     #pagination_class = StudentPagination
     pagination_class = LimitOffsetPagination
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['$name', '$score']
+    filter_backends = [filters.OrderingFilter]
+    ordering = ['name', 'score']
 
 """
 # -------------------------------------------------------------
