@@ -44,8 +44,9 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
 'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
-'PAGE_SIZE': 3
-#'DEFAULT_FILTER_BACKENDS': # Aquí colocamos el tipo de filtor que estará por default, revisa la documentación.
+'PAGE_SIZE': 3,
+# Aquí colocamos el tipo de filtro que estará por default, revisa la documentación de DRF.
+#'DEFAULT_FILTER_BACKENDS': 
 }
 
 MIDDLEWARE = [
