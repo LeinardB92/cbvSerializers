@@ -26,7 +26,8 @@ class StudentViewSet(viewsets.ModelViewSet):
     #pagination_class = StudentPagination
     pagination_class = LimitOffsetPagination
     filter_backends = [filters.OrderingFilter]
-    ordering = ['name', 'score']
+    ordering_fields = ['name', 'score']
+    ordering = ['id']
 
 """
 # -------------------------------------------------------------
